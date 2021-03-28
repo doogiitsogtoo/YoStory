@@ -27,7 +27,22 @@ export default class LoginScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <StatusBar barStyle="light-content"></StatusBar>
-                <Image source={require('../images/back1.png')}></Image>
+
+                <Image 
+                    source={require('../images/back1.jpg')} 
+                    style={{marginTop: -176, marginLeft: -50}}
+                ></Image>
+          
+                <Image 
+                    source={require('../images/')} 
+                    style={{position: "absolute", bottom: -325, right: -225}}
+                ></Image>
+
+                <Image 
+                    source={require('../images/YoStory_Logo_Demo.png')} 
+                    style={{marginTop: -110, alignLeft: "center"}}
+                ></Image>
+
                 <Text style={styles.greeting}>
                     {'YoStory-д тавтай морил'}
                 </Text>
