@@ -1,8 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
 import firebase from 'firebase/app';
 
 export default class RegisterScreen extends React.Component {
+
+    static navigationOptions ={
+        header: null
+    };
 
     state = {
         name: "",
@@ -26,6 +31,28 @@ export default class RegisterScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="light-content"></StatusBar>
+
+                <Image 
+                    source={require("../assets/header.png")} 
+                    style={{marginTop: -10, height: 150}}
+                ></Image>
+
+                <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.goBack()}>
+                    <Ionicons name="ios-arrow-round-back" size={32} color="#FFF"></Ionicons>
+                </TouchableOpacity>
+
+                <View style={{position: "absolute", top: 64, alignItems: "center", width: "100%"}}>
+                    <TouchableOpacity style={styles.avatar}>
+                        <Ionicons
+                            name="ios-add"
+                            size={40}
+                            color="#fff"
+                            style={{marginTop: 6, marginLeft: 2}}
+                        ></Ionicons>
+                    </TouchableOpacity>
+                </View>
+
                 <Text style={styles.greeting}>
                     {'Сайн байна уу!.\nНэвтрэхийн тулд бүртгүүлнэ үү.'}
                 </Text>
@@ -73,7 +100,10 @@ export default class RegisterScreen extends React.Component {
 
                 <TouchableOpacity style={{alignSelf: "center", marginTop: 32}}>
                     <Text style={{color: "414959", fontSize: 13}}>
-                        Шинэлэг Yostor? <Text style={{fontWeight: "500", color: "#E9456A"}}>Нэвтрэх</Text>
+                        Шинэлэг Yostory? 
+                        <Text 
+                            style={{fontWeight: "500", color: "#49abf4"}} 
+                            onPress={() => this.props.navigation.navigate("Login")}>Нэвтрэх</Text>
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -83,10 +113,11 @@ export default class RegisterScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "#90caf9"
     },
     greeting: {
-        marginTop: 32,
+        marginTop: -5,
         fontSize: 18,
         fontWeight: "400",
         textAlign: "center"
@@ -121,10 +152,30 @@ const styles = StyleSheet.create({
     },
     button: {
         marginHorizontal: 30,
-        backgroundColor: "#E9446A",
+        backgroundColor: "#54aef8",
         borderRadius: 4,
         height: 52,
         alignItems: "center",
         justifyContent: "center"
+    },
+    back: {
+        position: "absolute",
+        top: 48,
+        left: 32,
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        backgroundColor: "rgba(21, 22, 48, 0.1)",
+        alignItems: "center",
+        justifyContent: "center"
+    }, 
+    avatar: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        backgroundColor: "#e1e2e6",
+        marginTop: 100,
+        justifyContent: "center",
+        alignItems: "center"
     }
 });

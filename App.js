@@ -20,8 +20,9 @@ var firebaseConfig = {
   measurementId: "G-4WFLRWYDDY"
 };
 
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 const AppStack = createStackNavigator({
   Home: HomeScreen
