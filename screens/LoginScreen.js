@@ -36,8 +36,8 @@ export default class LoginScreen extends React.Component {
                 ></Image>
 
                 <Image 
-                    source={require("../assets/YoStory_Logo_Demo.png")} 
-                    style={{marginTop: -30, alignLeft: "center", width: 80, height: 80, marginLeft: 140}}
+                    source={require("../assets/YoStory_new.png")} 
+                    style={{marginTop: -30, alignLeft: "center", width: 90, height: 80, marginLeft: 140}}
                 ></Image>
 
                 <Text style={styles.greeting}>

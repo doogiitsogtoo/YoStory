@@ -42,7 +42,7 @@ export default class RegisterScreen extends React.Component {
                     <Ionicons name="ios-arrow-round-back" size={32} color="#FFF"></Ionicons>
                 </TouchableOpacity>
 
-                <View style={{position: "absolute", top: 64, alignItems: "center", width: "100%"}}>
+                <View style={{position: "absolute", top: -80, alignItems: "center", width: "100%"}}>
                     <TouchableOpacity style={styles.avatar}>
                         <Ionicons
                             name="ios-add"
@@ -98,12 +98,13 @@ export default class RegisterScreen extends React.Component {
                     <Text style={{color: "#FFF", fontWeight: "500"}}>Бүртгүүлэх</Text> 
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{alignSelf: "center", marginTop: 32}}>
+                <TouchableOpacity style={{alignSelf: "center", marginTop: 32}} 
+                                  onPress={() => this.props.navigation.navigate("Login")}
+                >
                     <Text style={{color: "414959", fontSize: 13}}>
                         Шинэлэг Yostory? 
                         <Text 
-                            style={{fontWeight: "500", color: "#49abf4"}} 
-                            onPress={() => this.props.navigation.navigate("Login")}>Нэвтрэх</Text>
+                            style={{fontWeight: "500", color: "#49abf4"}}>Нэвтрэх</Text>
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -120,7 +121,8 @@ const styles = StyleSheet.create({
         marginTop: -5,
         fontSize: 18,
         fontWeight: "400",
-        textAlign: "center"
+        textAlign: "center",
+        color: "#fff"
     },
     errorMessage: {
         height: 72,
